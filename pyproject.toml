@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "pyqt"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pyqt5 = "^5.15.9"
+pandas = "^2.0.2"
+openpyxl = "^3.1.2"
+pypiwin32 = "^223"
+pyqt5-tools = "^5.15.9.3.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

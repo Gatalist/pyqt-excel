@@ -1,0 +1,4 @@
+convert ui file in py file
+pyuic5 -x form.ui -o ui_form.py
+
+auto-py-to-exe
