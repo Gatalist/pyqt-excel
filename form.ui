@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>999</width>
+    <width>993</width>
     <height>660</height>
    </rect>
   </property>
@@ -27,7 +27,7 @@
      <rect>
       <x>7</x>
       <y>10</y>
-      <width>980</width>
+      <width>981</width>
       <height>630</height>
      </rect>
     </property>
@@ -44,7 +44,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab_read">
      <attribute name="title">
@@ -377,7 +377,7 @@ p, li { white-space: pre-wrap; }
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>991</width>
+        <width>981</width>
         <height>601</height>
        </rect>
       </property>
@@ -385,6 +385,9 @@ p, li { white-space: pre-wrap; }
        <font>
         <pointsize>12</pointsize>
        </font>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOn</enum>
       </property>
      </widget>
     </widget>
