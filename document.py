@@ -40,10 +40,9 @@ class ReadDocument:
                 yield string +'\n'
                 number += 1
         else:
-            alert = "⛔️ Колонка пустая"
+            alert = "\n⛔️ Колонка пустая\n"
             yield alert
-            
-        yield f"Прочитано: {number} строк"
+        yield f"\n✅ Прочитано: {number} строк\n"
 
     # проверяем строку на первую заглавную букву
     def checking_is_title(self, list_data) -> str:
@@ -65,8 +64,7 @@ class ReadDocument:
                     txt += f'{line}\n'
             if check:
                 yield string + f"{txt}\n"
-
-        yield f"Ошибок -> {errors}"
+        yield f"\n⛔️ Ошибок -> {errors}\n"
 
     # ищим фрагмент текста в ячейке
     def search_text(self, list_data, search: str) -> None:
@@ -79,8 +77,7 @@ class ReadDocument:
                 string += f'{line_new}\n'
                 result += 1
                 yield f"{string}\n"
-
-        yield f"\n✅ Найдено совпадений -> {result}"
+        yield f"\n✅ Найдено совпадений -> {result}\n"
 
     def get_unique_strings(self, list_data):
         unique_elem = []
@@ -90,8 +87,7 @@ class ReadDocument:
                 if line not in unique_elem:
                     unique_elem.append(line)
                     yield f"{line}\n"
-
-        yield f"\n✅ Найдено -> {len(unique_elem)}"
+        yield f"\n✅ Найдено -> {len(unique_elem)}\n"
 
 
 class ChangeDocument:
@@ -105,11 +101,11 @@ class ChangeDocument:
                 self.save_result_in_cell(cell_past_obj, new_text)
                 yield f'[{number_string}] : {new_text}\n'
                 result += 1
-
         yield f"✅ Текст добавлен в начало строки в ячейку [ {cell_past} ] - {result}\n"
 
     # вырезаем весь текст с одной ячееки и добавляем в другую ячейку
     def move_text_to_another_cell(self, cell_move: str, cell_past: str) -> None:
+        result = 0
         for number_string in self.list_len_string:
             cell_move_obj = self.get_cell_obj(cell_move, number_string)
             # вырезаем данные с ячейки если она не пустая
@@ -117,16 +113,15 @@ class ChangeDocument:
                 cell_past_obj = self.get_cell_obj(cell_past, number_string)
                 # вставляем данные в другую ячейку
                 self.add_text_to_cell(cell_past_obj, text=cell_move_obj.value)
-                
                 yield f"[ {number_string} ] : {cell_move_obj.value}\n"
-
                 # очищаем ячейку откуда копируем текст
                 self.add_text_to_cell(cell_move_obj, text=None)
-        
-        yield (f"✅ Text dell cell [{cell_move}] and add cell [{cell_past}]\n")
+                result += 1
+        yield (f"✅ Текст удален с колонки [{cell_move}] и добавлен в колонку [{cell_past}] - {result}\n")
 
     # удалить фрагмент текста со всех ячейк в столбце
     def remove_text_from_cell(self, cell_remove: str, text: str) -> None:
+        result = 0
         for number_string in self.list_len_string:
             cell_remove_obj = self.get_cell_obj(cell_remove, number_string)
             if cell_remove_obj.value is not None:
@@ -134,7 +129,21 @@ class ChangeDocument:
                 self.add_text_to_cell(cell_remove_obj, None)
                 self.add_text_to_cell(cell_remove_obj, new_data)
                 yield f"[ {number_string} ] : {new_data}\n"
-        yield f"✅ Text dell in [{cell_remove}]\n"
+                result += 1
+        yield f"✅ Текст удален с [{cell_remove}] - {result}\n"
+
+    # добавить текст перед текстом у весь столбц
+    def add_text_after_text_cell(self, cell_past: str, after_text: str, text_past: str) -> None:
+        result = 0
+        for number_string in self.list_len_string:
+            cell_past_obj = self.get_cell_obj(cell_past, number_string)
+            if cell_past_obj.value is not None:
+                new_data = cell_past_obj.value.replace(after_text, text_past)
+                self.add_text_to_cell(cell_past_obj, None)
+                self.add_text_to_cell(cell_past_obj, new_data)
+                yield f"[ {number_string} ] : {new_data}\n"
+                result += 1
+        yield f"✅ Текст удален с [{cell_past}] - {result}\n"
     
     # добавление фрагмента текста в каждую ячейку
     def add_text_to_column(self, cell_past: str, text: str) -> None:
@@ -144,8 +153,7 @@ class ChangeDocument:
             self.add_text_to_cell(cell_move_obj, text)
             yield f'[{number_string}] : {text}\n'
             result += 1
-
-        yield f"✅ Этот текст добавлен в колонку [ {cell_past} ] во все строки - {result} \n"
+        yield f"✅ Текст добавлен в колонку [ {cell_past} ] - {result}\n"
 
     # обьеденяем ячейки в одну
     def join_columns_text(self, save_column: str, join_columns: list, join_separator: str, end_text: str) -> None:
@@ -210,8 +218,9 @@ class ChangeDocument:
                     # добавление фрагмента текста в ячейку
                     cell_past_obj = self.get_cell_obj(cell_past, number_string)
                     self.add_text_to_cell(cell_past_obj, search_text_lower[0])
-
         yield f"✅ Изменено {result} строк\n\n"
+
+
 
 class Document(ReadDocument, ChangeDocument):
     read_document: str = None # ссылка на документ

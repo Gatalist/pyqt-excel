@@ -9,13 +9,14 @@ class Variable:
     object_option_read_col: str = 'Прочитать колонку'
     object_option_check_start_end_str: str = 'Проверить начало и конец строки'  
     object_search_text_str: str = 'Поиск текста'
-    object_unique_strings_str: str = 'уникальныйе строки'
+    object_unique_strings_str: str = 'Уникальные строки'
     
     add_text_to_cell_start_txt: str = 'Добавление текста в начало (не пустая строка)'
     add_text_to_cell_end_txt: str = 'Добавление текста в конец (везде)'
     remove_text_from_cell_txt: str = 'Удалить указаный текст с столбца'
     move_text_to_another_cell_txt: str = 'Вызерать текст в другую ячейку (весь)'
     serch_move_text_to_another_cell_txt: str = 'Вызерать совпадение текста в другую ячейку (поиск)'
+    add_text_after_text_cell_txt: str = 'Добавить текст перед текстом'
 
     explorer_open_doc_txt = 'Open File'
     explorer_save_doc_txt = 'Save File'
@@ -85,6 +86,9 @@ class LogicsChangeDocument(Variable):
         self.frame_past.setVisible(False)
         self.frame_object_search_text_2.setVisible(True)
         self.label_6.setVisible(False)
+        self.label_10.setVisible(False)
+        self.label_11.setVisible(False)
+        self.object_after_text.setVisible(False)
 
     def check_select_option_change(self):
         print("check select item")
@@ -103,7 +107,13 @@ class LogicsChangeDocument(Variable):
             self.frame_copy.setVisible(True)
             self.frame_past.setVisible(True)
             self.label_6.setVisible(True)
-            
+        if self.object_option_change.currentText() == self.add_text_after_text_cell_txt:
+            self.object_after_text.setVisible(True)
+            self.frame_past.setVisible(True)
+            self.label_6.setVisible(True)
+            self.label_10.setVisible(True)
+            self.label_11.setVisible(True)
+        
 
     # методы над документом
     def select_option_change(self):
@@ -114,6 +124,7 @@ class LogicsChangeDocument(Variable):
         self.object_option_change.addItem(self.remove_text_from_cell_txt)
         self.object_option_change.addItem(self.move_text_to_another_cell_txt)
         self.object_option_change.addItem(self.serch_move_text_to_another_cell_txt)
+        self.object_option_change.addItem(self.add_text_after_text_cell_txt)
 
     # запуск программы
     def btn_start_change(self):
@@ -145,6 +156,16 @@ class LogicsChangeDocument(Variable):
             remove_text = self.object_copy.toPlainText()
             obj_text = self.object_search_text_2.toPlainText()
             remove = self.remove_text_from_cell(cell_remove=remove_text, text=obj_text)
+            for string in remove:
+                self.output_widget.appendPlainText(string)
+                print(string)
+
+        # --- удалить фрагмент текста со всех ячейк в столбце
+        if method == self.add_text_after_text_cell_txt:
+            cell_past = self.object_past.toPlainText()
+            after_text = self.object_after_text.toPlainText()
+            text_past = self.object_search_text_2.toPlainText()
+            remove = self.add_text_after_text_cell(cell_past=cell_past, after_text=after_text, text_past=text_past)
             for string in remove:
                 self.output_widget.appendPlainText(string)
                 print(string)

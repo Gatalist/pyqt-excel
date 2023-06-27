@@ -44,7 +44,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab_read">
      <attribute name="title">
@@ -189,7 +189,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>300</x>
-        <y>250</y>
+        <y>260</y>
         <width>400</width>
         <height>41</height>
        </rect>
@@ -280,7 +280,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>450</x>
-        <y>220</y>
+        <y>230</y>
         <width>101</width>
         <height>19</height>
        </rect>
@@ -306,9 +306,9 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>290</x>
-        <y>50</y>
+        <y>10</y>
         <width>421</width>
-        <height>141</height>
+        <height>211</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -321,8 +321,8 @@ p, li { white-space: pre-wrap; }
        <property name="geometry">
         <rect>
          <x>160</x>
-         <y>0</y>
-         <width>71</width>
+         <y>40</y>
+         <width>41</width>
          <height>19</height>
         </rect>
        </property>
@@ -334,9 +334,9 @@ p, li { white-space: pre-wrap; }
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>30</y>
+         <y>70</y>
          <width>400</width>
-         <height>80</height>
+         <height>51</height>
         </rect>
        </property>
       </widget>
@@ -344,13 +344,49 @@ p, li { white-space: pre-wrap; }
        <property name="geometry">
         <rect>
          <x>50</x>
-         <y>110</y>
+         <y>10</y>
          <width>351</width>
          <height>20</height>
         </rect>
        </property>
        <property name="text">
         <string>для разделения разного текста используйте  ::</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="object_after_text">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>160</y>
+         <width>400</width>
+         <height>51</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_10">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>130</y>
+         <width>231</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>После какого текста вставить</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_11">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>40</y>
+         <width>91</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>для вставки</string>
        </property>
       </widget>
      </widget>
