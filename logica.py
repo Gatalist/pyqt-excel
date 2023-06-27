@@ -5,9 +5,12 @@ from dataclasses import dataclass
 class Variable:
     object_edition_read_text: str = "Читать"
     object_edition_change_text: str = "Редактировать"
+    
     object_option_read_col: str = 'Прочитать колонку'
     object_option_check_start_end_str: str = 'Проверить начало и конец строки'  
     object_search_text_str: str = 'Поиск текста'
+    object_unique_strings_str: str = 'уникальныйе строки'
+    
     add_text_to_cell_start_txt: str = 'Добавление текста в начало (не пустая строка)'
     add_text_to_cell_end_txt: str = 'Добавление текста в конец (везде)'
     remove_text_from_cell_txt: str = 'Удалить указаный текст с столбца'
@@ -40,6 +43,7 @@ class LogicsReadDocument(Variable):
         self.object_option_read.addItem(self.object_option_read_col)
         self.object_option_read.addItem(self.object_option_check_start_end_str)
         self.object_option_read.addItem(self.object_search_text_str)
+        self.object_option_read.addItem(self.object_unique_strings_str)
 
     # запуск программы
     def btn_start_read(self):
@@ -69,6 +73,10 @@ class LogicsReadDocument(Variable):
             for string in read:
                 self.output_widget.appendPlainText(string)
 
+        if method == self.object_unique_strings_str:
+            read = self.get_unique_strings(list_data)
+            for string in read:
+                self.output_widget.appendPlainText(string)
 
 
 class LogicsChangeDocument(Variable):

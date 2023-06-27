@@ -82,6 +82,17 @@ class ReadDocument:
 
         yield f"\n✅ Найдено совпадений -> {result}"
 
+    def get_unique_strings(self, list_data):
+        unique_elem = []
+        for number_string, text in list_data:
+            string = f'-----[ Строка {number_string} ]-----\n'
+            for line in text.split(';'):
+                if line not in unique_elem:
+                    unique_elem.append(line)
+                    yield f"{line}\n"
+
+        yield f"\n✅ Найдено -> {len(unique_elem)}"
+
 
 class ChangeDocument:
     # добавление фрагмента текста в начало ячейки если она не пустая
