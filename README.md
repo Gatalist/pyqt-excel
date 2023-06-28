@@ -33,7 +33,7 @@ auto-py-to-exe
   
 [Подробная инструкция](https://progtips.ru/python/upakovka-python-programmy-v-exe-fajl.html)  
 
-[Собраная программа]([https://progtips.ru/python/upakovka-python-programmy-v-exe-fajl.html](https://drive.google.com/file/d/1MgK_3yvaeHAMAH_vlXplN2UhWi7z1ERF/view?usp=drive_link))
+[Собраная программа](https://drive.google.com/file/d/1MgK_3yvaeHAMAH_vlXplN2UhWi7z1ERF/view?usp=drive_link)
 
 ## Скрин программы  
 В зависимости от выбора действия будут менятся поля программы  
