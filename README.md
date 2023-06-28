@@ -38,10 +38,10 @@ auto-py-to-exe
 
 ![Иллюстрация к проекту](https://github.com/Gatalist/pyqt-excel/blob/main/image/1.png)  
 
-![Иллюстрация к проекту](https://github.com/Gatalist/pyqt-excel/blob/main/image/2.png)  
-
 ![Иллюстрация к проекту](https://github.com/Gatalist/pyqt-excel/blob/main/image/3.png)  
 
 ![Иллюстрация к проекту](https://github.com/Gatalist/pyqt-excel/blob/main/image/4.png)  
 
 ![Иллюстрация к проекту](https://github.com/Gatalist/pyqt-excel/blob/main/image/5.png)  
+
+![Иллюстрация к проекту](https://github.com/Gatalist/pyqt-excel/blob/main/image/2.png)  
